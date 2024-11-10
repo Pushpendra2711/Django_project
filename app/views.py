@@ -127,5 +127,8 @@ def Add_emp(request):
         count="0"   
     return render(request,'add_employee.html',{'count':count})
 
+def Show_products(request):
+    return render(request,'Products.html')
+
 
     

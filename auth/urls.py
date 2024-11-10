@@ -28,7 +28,8 @@ urlpatterns = [
     path('signout/',views.Signout,name='signout'),
     path('dashboard/',views.Dashboard,name='dashboard'),
     path('dashboard/delete/<int:id>',views.Delete,name="delete"),
-    path('add_employee',views.Add_emp,name="add_emp")
+    path('add_employee',views.Add_emp,name="add_emp"),
+    path('products',views.Show_products,name="products")
     ]
 
 if settings.DEBUG:

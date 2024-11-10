@@ -21,7 +21,7 @@
             <ul class="navbar-nav">
               
               <li class="nav-item">
-                <a class="nav-link" href="#">Products</a>
+                <a class="nav-link" href="{% url 'products' %}">Products</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">About</a>
@@ -41,6 +41,14 @@
           
           <a href="{% url 'signout'%}" class="btn btn-primary  me-2" role="button" style="margin-right: 5px;">Logout</a>
             {% else %}
+            <a href="#" style="margin-right: 5px;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path d="M18.1004 22.5H6.40039C3.92539 22.5 1.90039 20.475 1.90039 18V17.85L2.35039 5.85C2.42539 3.375 4.45039 1.5 6.85039 1.5H17.6504C20.0504 1.5 22.0754 3.375 22.1504 5.85L22.6004 17.85C22.6754 19.05 22.2254 20.175 21.4004 21.075C20.5754 21.975 19.4504 22.5 18.2504 22.5C18.2504 22.5 18.1754 22.5 18.1004 22.5ZM6.85039 3C5.20039 3 3.92539 4.275 3.85039 5.85L3.40039 18C3.40039 19.65 4.75039 21 6.40039 21H18.2504C19.0754 21 19.8254 20.625 20.3504 20.025C20.8754 19.425 21.1754 18.675 21.1754 17.85L20.7254 5.85C20.6504 4.2 19.3754 3 17.7254 3H6.85039Z" fill="#1a1a1a"></path>
+                  <path d="M12.25 10.5C9.325 10.5 7 8.175 7 5.25C7 4.8 7.3 4.5 7.75 4.5C8.2 4.5 8.5 4.8 8.5 5.25C8.5 7.35 10.15 9 12.25 9C14.35 9 16 7.35 16 5.25C16 4.8 16.3 4.5 16.75 4.5C17.2 4.5 17.5 4.8 17.5 5.25C17.5 8.175 15.175 10.5 12.25 10.5Z" fill="#1a1a1a"></path>
+              </svg>
+          </a>
+          <a href="#" class="btn btn-light border btn-outline-dark" role="button" style="margin-right:10px;">Orders</a>
+
             
               <a href="{% url 'signin' %}" style="color: black;margin-right: 5px;">
                 <i class="fa-regular fa-user fa-lg"></i>
