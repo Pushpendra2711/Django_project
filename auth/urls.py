@@ -29,7 +29,8 @@ urlpatterns = [
     path('dashboard/',views.Dashboard,name='dashboard'),
     path('dashboard/delete/<int:id>',views.Delete,name="delete"),
     path('add_employee',views.Add_emp,name="add_emp"),
-    path('products',views.Show_products,name="products")
+    path('products',views.Show_products,name="products"),
+    path('about',views.About_page,name="about")
     ]
 
 if settings.DEBUG:

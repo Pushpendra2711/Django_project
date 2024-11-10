@@ -130,5 +130,8 @@ def Add_emp(request):
 def Show_products(request):
     return render(request,'Products.html')
 
+def About_page(request):
+    return render(request,'About.html')
+
 
     
