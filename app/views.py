@@ -1,7 +1,8 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth import authenticate,login,logout
-from .models import loc_user,Employee
+#from .models import loc_user,Employee
+from .models import loc_user
 from django.core.mail import send_mail
 from django.conf import settings
 from django.contrib import messages
@@ -9,7 +10,7 @@ from django.contrib import messages
 # home page 
 def Home(request):
     
-    '''dashboard data count and check for user authenticated because if the user logout the data value become 0'''
+    '''dashboard data count and check for user authenticated because if the user logout the data value become 0
     
     if request.user.is_authenticated:
         emp_data=Employee.objects.filter(teacher_id=request.user)
@@ -20,7 +21,8 @@ def Home(request):
     context={
         'count':data
     }
-    return render(request,'index.html',context)
+    return render(request,'index.html',context)'''
+    return render(request,'index.html')
 
 def Signin(request):
     #post method to get the data from signin form
@@ -87,45 +89,45 @@ def Signout(request):
     return redirect('home')
 
 # dashoard to show the data
-def Dashboard(request):
-    #show only the login user related data by using filter
-    data=Employee.objects.filter(teacher_id=request.user)
-
-    '''dashboard data count and check for user authenticated because if the user logout the data value become 0'''
-    
-    if request.user.is_authenticated:
-        emp_data=Employee.objects.filter(teacher_id=request.user)
-        count=emp_data.count()
-    else:
-        count="0"    
-
-    return render(request,'dashboard.html',{'data':data,'count':count})
-
-#delete the data by clicking the btn 
-def Delete(request,id):
-    data=get_object_or_404(Employee,id=id)
-    data.delete()
-    return redirect('dashboard')
-
-#Ad employee detail
-def Add_emp(request):
-    # employee form data 
-    if request.method=="POST":
-        emp_name=request.POST.get('emp_name')
-        emp_email=request.POST.get('emp_email')
-        emp_course=request.POST.get('emp_course')
-        d=Employee(emp_name=emp_name,emp_email=emp_email,emp_course=emp_course,teacher=request.user)
-        d.save()
-
-
-    '''dashboard data count and check for user authenticated because if the user logout the data value become 0'''
-    
-    if request.user.is_authenticated:
-        emp_data=Employee.objects.filter(teacher_id=request.user)
-        count=emp_data.count()
-    else:
-        count="0"   
-    return render(request,'add_employee.html',{'count':count})
+#def Dashboard(request):
+#    #show only the login user related data by using filter
+#    data=Employee.objects.filter(teacher_id=request.user)
+#
+#    '''dashboard data count and check for user authenticated because if the user logout the data value become 0'''
+    #
+    #if request.user.is_authenticated:
+    #    emp_data=Employee.objects.filter(teacher_id=request.user)
+    #    count=emp_data.count()
+    #else:
+    #    count="0"    
+#
+    #return render(request,'dashboard.html',{'data':data,'count':count})
+#
+#del#ete the data by clicking the btn 
+#def Delete(request,id):
+#    data=get_object_or_404(Employee,id=id)
+#    data.delete()
+#    return redirect('dashboard')
+#
+##Ad employee detail
+#def Add_emp(request):
+#    # employee form data 
+#    if request.method=="POST":
+#        emp_name=request.POST.get('emp_name')
+#        emp_email=request.POST.get('emp_email')
+#        emp_course=request.POST.get('emp_course')
+#        d=Employee(emp_name=emp_name,emp_email=emp_email,emp_course=emp_course,teacher=request.user)
+#        d.save()
+#
+#
+#    '''dashboard data count and check for user authenticated because if the user logout the data value become 0'''
+#    
+#    if request.user.is_authenticated:
+#        emp_data=Employee.objects.filter(teacher_id=request.user)
+#        count=emp_data.count()
+#    else:
+#        count="0"   
+#    return render(request,'add_employee.html',{'count':count})
 
 def Show_products(request):
     return render(request,'Products.html')
