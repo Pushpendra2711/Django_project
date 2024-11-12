@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        header {
+            width: 100%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .container {
+            width: 80%;
+            margin: 30px auto;
+            min-height: 300px;
+            padding: 20px;
+            border: 1px solid #ddd;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f4f4f4;
+            font-weight: bold;
+        }
+        img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+        }
+        .quantity-buttons {
+            display: flex;
+            align-items: center;
+        }
+        .quantity-buttons button {
+            padding: 5px 10px;
+            margin: 0 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        {% include 'header.html' %}
+    </header>
+
+    <div class="container">
+        <h1>My Shopping Bag</h1>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>name</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><img src="media/2_635ab23a-ea17-40ac-a15d-c8ab7230224c.webp"></td>
+                    <td>Red Chill Dance Pant</td>
+                    <td><button><i class="fa-solid fa-minus fa-xl"></i></button><span style="padding: 5px;background-color: #f4f4f4;color: black;">1</span><button><i class="fa-solid fa-plus fa-xl"></i></button></td>
+                    <td>1799</td>
+                    <td><a href="#"><i class="fa-solid fa-trash fa-xl" style="color: #000000;"></i></a></tr>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        
+    </script>
+</body>
+</html>

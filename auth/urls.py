@@ -30,7 +30,9 @@ urlpatterns = [
     #path('dashboard/delete/<int:id>',views.Delete,name="delete"),
     #path('add_employee',views.Add_emp,name="add_emp"),
     path('products',views.Show_products,name="products"),
-    path('about',views.About_page,name="about")
+    path('about',views.About_page,name="about"),
+    path('cart/<int:item_id>/',views.Add_Cart,name="cart"),
+    path('cart',views.Cart,name='cart')
     ]
 
 if settings.DEBUG:

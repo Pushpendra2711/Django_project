@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect,get_object_or_404
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth import authenticate,login,logout
 #from .models import loc_user,Employee
-from .models import loc_user
+from .models import loc_user,Products
 from django.core.mail import send_mail
 from django.conf import settings
 from django.contrib import messages
@@ -129,11 +129,29 @@ def Signout(request):
 #        count="0"   
 #    return render(request,'add_employee.html',{'count':count})
 
+#show product function
 def Show_products(request):
-    return render(request,'Products.html')
+    data=Products.objects.all()
+    return render(request,'Products.html',{'data':data})
 
+#show Aboutpage function
 def About_page(request):
     return render(request,'About.html')
+
+#after clicking the add to cart button this function will run
+def Add_Cart(request,item_id):
+    product_id=Products.objects.get(id=item_id)
+    print(product_id)
+    return redirect('products')
+    
+#after clicking the cart button this function will run    
+def Cart(request):
+    if request.user.is_authenticated:
+        return render(request,'Cart.html')
+    else:
+        return redirect('signin')
+
+
 
 
     
